@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "331355436573",
+    "firebase_url": "https://quark-2017.firebaseio.com",
+    "project_id": "quark-2017",
+    "storage_bucket": "quark-2017.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:331355436573:android:ccb1c65a7b2f7179",
+        "android_client_info": {
+          "package_name": "bits.mobileappclub.quark_2017"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "331355436573-iojc8ep9426grgtsovo59tjtg5d5bd0q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "bits.mobileappclub.quark_2017",
+            "certificate_hash": "4B6E4744D6B6E05F018FBEBF1BDD53F40F0ECC6B"
+          }
+        },
+        {
+          "client_id": "331355436573-57ae9p5o8604k3kjtctlqi0fhai5qvqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcsAy-QWLvlKf3m4cULnst9jk28st6Sng"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "331355436573-57ae9p5o8604k3kjtctlqi0fhai5qvqd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

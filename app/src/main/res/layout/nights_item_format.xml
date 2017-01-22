@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/image_src"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:viewAspectRatio="2"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="#60000000"
+            >
+
+            <TextView
+                android:id="@+id/event_location_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/event_details_pro"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="26dp"
+                android:backgroundTint="#e74c3c"
+                android:fontFamily="sans-serif-condensed"
+                android:padding="8dp"
+                android:text="Location"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                />
+
+            <TextView
+                android:id="@+id/event_time"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/event_details_pro"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="26dp"
+                android:backgroundTint="#e74c3c"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:padding="8dp"
+                android:paddingBottom="8dp"
+                android:text="Time"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                />
+
+            <TextView
+                android:id="@+id/event_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Title"
+                android:textColor="@android:color/white"
+                android:textSize="32sp"
+                />
+
+            <TextView
+                android:id="@+id/event_details_pro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/event_title"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Description"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
+
+        </RelativeLayout>
+
+
+    </FrameLayout>
+
+
+</LinearLayout>
