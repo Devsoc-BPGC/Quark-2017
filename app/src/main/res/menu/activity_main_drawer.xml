@@ -3,6 +3,10 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_lecture"
+            android:icon="@drawable/ic_record_voice_over_black_24dp"
+            android:title="Lecture Series" />
+        <item
             android:id="@+id/nav_nights"
             android:icon="@drawable/ic_stars_black_24dp"
             android:title="Aurora Nights" />
@@ -11,13 +15,14 @@
             android:icon="@drawable/ic_assignment_black_24dp"
             android:title="Workshops" />
         <item
+            android:id="@+id/nav_sponsor"
+            android:icon="@drawable/sponsor"
+            android:title="Partners" />
+        <item
             android:id="@+id/nav_maps"
             android:icon="@drawable/ic_mapicon"
             android:title="Maps" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+
     </group>
 
     <item android:title="Communicate">

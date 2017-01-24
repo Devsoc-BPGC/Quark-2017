@@ -18,16 +18,17 @@ import android.view.WindowManager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Nights extends AppCompatActivity {
+public class LectureSeries extends AppCompatActivity {
 
     private ViewPager viewPager;
     private TabLayout tabLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nights);
+        setContentView(R.layout.activity_lecture_series);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (toolbar != null) {
             toolbar.setNavigationOnClickListener(
@@ -63,15 +64,13 @@ public class Nights extends AppCompatActivity {
         //Setup tablayout with viewpager
         tabLayout.setupWithViewPager(viewPager);
         viewPager.setCurrentItem(0);
-
-
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_nights, menu);
+        getMenuInflater().inflate(R.menu.menu_lecture_series, menu);
         return true;
     }
 
@@ -81,15 +80,16 @@ public class Nights extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+
         return super.onOptionsItemSelected(item);
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        LectureSeries.ViewPagerAdapter adapter = new LectureSeries.ViewPagerAdapter(getSupportFragmentManager());
 
-        adapter.addFragment(new DayOneNights(), "DAY ONE");
-        adapter.addFragment(new DayTwoNights(), "DAY TWO");
-        adapter.addFragment(new DayThreeNights(), "DAY THREE");
+        adapter.addFragment(new Lecture_Day1(), "DAY ONE");
+        adapter.addFragment(new Lecture_Day2(), "DAY TWO");
+        adapter.addFragment(new Lecture_Day3(), "DAY THREE");
         viewPager.setAdapter(adapter);
     }
 
@@ -123,5 +123,6 @@ public class Nights extends AppCompatActivity {
             return mFragmentTitleList.get(position);
         }
     }
+
 
 }
