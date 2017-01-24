@@ -77,6 +77,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_sponsor) {
             Intent intent = new Intent(MainActivity.this, Sponsors.class);
             startActivity(intent);
+        } else if (id == R.id.nav_lecture) {
+            Intent intent = new Intent(MainActivity.this, LectureSeries.class);
+            startActivity(intent);
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
