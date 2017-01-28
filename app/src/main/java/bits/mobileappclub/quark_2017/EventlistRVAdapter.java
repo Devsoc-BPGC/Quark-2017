@@ -2,11 +2,14 @@ package bits.mobileappclub.quark_2017;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.Vector;
 
@@ -39,6 +42,7 @@ public class EventlistRVAdapter extends RecyclerView.Adapter<EventlistRVAdapter.
     @Override
     public void onBindViewHolder(EventlistRVAdapter.ViewHolder holder, int position) {
         holder.eventtitle.setText(eventlistItems.get(position).getTitle());
+        holder.eventimage.setImageURI(Uri.parse(eventlistItems.get(position).getImageurl()));
     }
 
     @Override
@@ -48,10 +52,11 @@ public class EventlistRVAdapter extends RecyclerView.Adapter<EventlistRVAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView eventtitle;
-
+        SimpleDraweeView eventimage;
         public ViewHolder(View itemView) {
             super(itemView);
             eventtitle = (TextView) itemView.findViewById(R.id.event_list_item_format_text);
+            eventimage = (SimpleDraweeView) itemView.findViewById(R.id.event_list_item_format_image);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

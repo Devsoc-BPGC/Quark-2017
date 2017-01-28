@@ -6,15 +6,26 @@ package bits.mobileappclub.quark_2017;
 
 public class EventlistItem {
     private String title;
+    private String imageurl;
     private EventDisplayItem eventDisplayItem;
 
-    public EventlistItem(String title, EventDisplayItem eventDisplayItem) {
+    public EventlistItem(String title, String imageurl, EventDisplayItem eventDisplayItem) {
         this.title = title;
+        this.imageurl = imageurl;
         this.eventDisplayItem = eventDisplayItem;
     }
 
     public EventlistItem() {
 
+    }
+
+    public String getImageurl() {
+        if (eventDisplayItem != null) return eventDisplayItem.getImageurl();
+        else return "";
+    }
+
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl;
     }
 
     public String getTitle() {

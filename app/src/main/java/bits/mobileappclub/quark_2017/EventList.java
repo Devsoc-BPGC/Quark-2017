@@ -4,7 +4,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -65,7 +65,7 @@ public class EventList extends AppCompatActivity {
             databaseReference = FirebaseDatabase.getInstance().getReference().child("Events").child(category);
         }
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         adapter = new EventlistRVAdapter(this, eventlistItems);
         recyclerView.setAdapter(adapter);
         databaseReference.keepSynced(true);
@@ -85,7 +85,7 @@ public class EventList extends AppCompatActivity {
                     eventDisplayItems.add(shot.getValue(EventDisplayItem.class));
                 }
                 for (int i = 0; i < eventDisplayItems.size(); i++) {
-                    eventlistItems.add(new EventlistItem(eventDisplayItems.get(i).getTitle(), eventDisplayItems.get(i)));
+                    eventlistItems.add(new EventlistItem(eventDisplayItems.get(i).getTitle(), eventDisplayItems.get(i).getImageurl(), eventDisplayItems.get(i)));
                 }
                 adapter.notifyDataSetChanged();
                 progressBar.setVisibility(INVISIBLE);
