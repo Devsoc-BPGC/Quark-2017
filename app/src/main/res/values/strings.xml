@@ -16,4 +16,6 @@
     <string name="title_activity_lecture_series">Lecture Series</string>
     <string name="title_activity_sponsors">Sponsors</string>
     <string name="title_activity_event">Event</string>
+    <string name="title_activity_event_list">EventList</string>
+    <string name="title_activity_event_display">EventDisplay</string>
 </resources>

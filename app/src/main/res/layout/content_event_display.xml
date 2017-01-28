@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_event_display"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="bits.mobileappclub.quark_2017.EventDisplay"
+    tools:showIn="@layout/activity_event_display">
+
+    <TextView
+        android:id="@+id/content_event_details_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:text="Detailed Description"
+        android:textColor="@android:color/black"
+        android:textSize="14sp" />
+
+
+    <Button
+        android:id="@+id/content_event_details_pdf_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@color/black_overlay"
+        android:padding="8dp"
+        android:text="Download Rulebook"
+        android:textColor="@android:color/white" />
+</LinearLayout>

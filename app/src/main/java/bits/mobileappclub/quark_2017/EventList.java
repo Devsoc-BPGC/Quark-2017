@@ -23,19 +23,20 @@ import java.util.Vector;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
-public class Workshops extends AppCompatActivity {
-    WorkshopRVAdapter adapter;
-    private DatabaseReference workshop = FirebaseDatabase.getInstance().getReference().child("Workshops");
-    private Vector<WorkshopListItem> workshopListItems = new Vector<>();
-    private RecyclerView workshopRecycleView;
-    private Vector<WorkshopItemformat> workshopItemformats=new Vector<>();
+public class EventList extends AppCompatActivity {
+    EventlistRVAdapter adapter;
+    private DatabaseReference databaseReference;
+    private Vector<EventlistItem> eventlistItems = new Vector<>();
+    private RecyclerView recyclerView;
+    private Vector<EventDisplayItem> eventDisplayItems = new Vector<>();
     private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_workshops);
-        workshopRecycleView = (RecyclerView) findViewById(R.id.content_workshop_rv);
-        progressBar = (ProgressBar) findViewById(R.id.content_workshop_progress);
+        setContentView(R.layout.activity_event_list);
+        recyclerView = (RecyclerView) findViewById(R.id.content_event_list_rv);
+        progressBar = (ProgressBar) findViewById(R.id.content_event_list_progress);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -58,29 +59,33 @@ public class Workshops extends AppCompatActivity {
                     });
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-        workshopRecycleView.setHasFixedSize(true);
-        workshopRecycleView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new WorkshopRVAdapter(this,workshopListItems);
-        workshopRecycleView.setAdapter(adapter);
-        workshop.keepSynced(true);
+        String category = getIntent().getStringExtra("Category");
+        if (category != null) {
+            getSupportActionBar().setTitle(category);
+            databaseReference = FirebaseDatabase.getInstance().getReference().child("Events").child(category);
+        }
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new EventlistRVAdapter(this, eventlistItems);
+        recyclerView.setAdapter(adapter);
+        databaseReference.keepSynced(true);
     }
+
     @Override
     protected void onStart() {
         super.onStart();
 
-        workshop.addValueEventListener(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // Log.e("TAG","omg pro boy");
                 progressBar.setVisibility(VISIBLE);
-                workshopItemformats.clear();
-                workshopListItems.clear();
+                eventDisplayItems.clear();
+                eventlistItems.clear();
                 for (DataSnapshot shot : dataSnapshot.getChildren()) {
-                    workshopItemformats.add(shot.getValue(WorkshopItemformat.class));
+                    eventDisplayItems.add(shot.getValue(EventDisplayItem.class));
                 }
-                for(int i=0;i<workshopItemformats.size();i++)
-                {
-                    workshopListItems.add(new WorkshopListItem(workshopItemformats.get(i).getImageurl(),workshopItemformats.get(i)));
+                for (int i = 0; i < eventDisplayItems.size(); i++) {
+                    eventlistItems.add(new EventlistItem(eventDisplayItems.get(i).getTitle(), eventDisplayItems.get(i)));
                 }
                 adapter.notifyDataSetChanged();
                 progressBar.setVisibility(INVISIBLE);
@@ -89,7 +94,7 @@ public class Workshops extends AppCompatActivity {
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 progressBar.setVisibility(INVISIBLE);
-                Log.e("TAG",databaseError.getDetails());
+                Log.e("TAG", databaseError.getDetails());
             }
         });
 

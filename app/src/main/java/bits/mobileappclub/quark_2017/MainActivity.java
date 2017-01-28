@@ -64,8 +64,10 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.nav_maps) {
+        if (id == R.id.nav_events) {
+            Intent intent = new Intent(MainActivity.this, Event.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_maps) {
             Intent intent = new Intent(MainActivity.this, BPGCMapsActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_workshop) {
@@ -81,8 +83,7 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(MainActivity.this, LectureSeries.class);
             startActivity(intent);
         } else if (id == R.id.nav_share) {
-            Intent intent = new Intent(MainActivity.this, Event.class);
-            startActivity(intent);
+
         } else if (id == R.id.nav_send) {
 
         }

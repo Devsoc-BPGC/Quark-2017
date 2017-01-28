@@ -1,6 +1,7 @@
 package bits.mobileappclub.quark_2017;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,6 +58,14 @@ public class EventRVAdapter extends RecyclerView.Adapter<EventRVAdapter.ViewHold
             super(itemView);
             eventimage = (SimpleDraweeView) itemView.findViewById(R.id.event_item_format_image);
             eventname = (TextView) itemView.findViewById(R.id.event_item_format_text);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, EventList.class);
+                    intent.putExtra("Category", eventItemFormats.get(getAdapterPosition()).getTitle());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }
