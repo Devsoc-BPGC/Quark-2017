@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="1dp"
+    android:layout_margin="2dp"
     app:cardBackgroundColor="#000000">
 
     <LinearLayout
@@ -11,18 +11,18 @@
         android:orientation="vertical">
 
         <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/sponsor_item_format_image"
+            android:id="@+id/event_item_format_image"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="130dp"
             app:actualImageScaleType="fitCenter" />
 
         <TextView
-            android:id="@+id/sponsor_item_format_text"
+            android:id="@+id/event_item_format_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="4dp"
-            android:text="Sponsor title"
+            android:text="Event title"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
