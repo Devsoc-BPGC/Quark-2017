@@ -14,7 +14,7 @@ import java.util.Vector;
 
 public class Event extends AppCompatActivity {
     private final String event_name[] = {
-            "Design & Build", "Roboficial", "Initiatives", "Programmer's Inc.", "Electrify", "Elixir", "Specials", "Corporate", "Matka",
+            "Design & Build", "Roboficial", "Initiatives", "Programmer's Inc", "Electrify", "Elixir", "Specials", "Corporate", "Matka",
             "Cubing", "BITSMUN"
     };
     private final int event_imageid[] = {
