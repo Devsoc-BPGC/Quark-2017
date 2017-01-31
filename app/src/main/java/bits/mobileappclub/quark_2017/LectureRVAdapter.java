@@ -101,7 +101,7 @@ public class LectureRVAdapter extends RecyclerView.Adapter<LectureRVAdapter.View
                 @Override
                 public void onClick(View view) {
                     SimpleAlertDialog alert = new SimpleAlertDialog();
-                    alert.showDialog(context, "Alert", "Do you want to download the poster?", "YES", "NO", "HI", true, true, false);
+                    alert.showDialog(context, "Alert", "Do you want to download the image?", "YES", "NO", "HI", true, true, false);
                     alert.setClickListener(new SimpleAlertDialog.ClickListener() {
                         @Override
                         public void onPosButtonClick() {

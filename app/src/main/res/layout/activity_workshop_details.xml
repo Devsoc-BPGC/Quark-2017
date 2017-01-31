@@ -10,7 +10,7 @@
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/workshop_details_collapsing_toolbar"
@@ -30,12 +30,15 @@
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:id="@+id/activity_workshop_details_backdrop"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:fitsSystemWindows="true"
                     android:minHeight="?attr/actionBarSize"
                     android:scaleType="centerCrop"
                     android:src="@drawable/empty_event"
-                    app:layout_collapseMode="parallax" />
+                    android:transitionName="@string/app_name"
+                    app:layout_collapseMode="parallax"
+                    app:placeholderImage="@color/white"
+                    app:viewAspectRatio="1.956" />
 
                 <View
                     android:layout_width="match_parent"
