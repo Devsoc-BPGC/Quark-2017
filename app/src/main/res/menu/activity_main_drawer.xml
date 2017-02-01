@@ -23,6 +23,10 @@
             android:icon="@drawable/ic_toys_black_24dp"
             android:title="Exhibitions" />
         <item
+            android:id="@+id/nav_sch"
+            android:icon="@drawable/ic_book_black_24dp"
+            android:title="Schedule" />
+        <item
             android:id="@+id/nav_sponsor"
             android:icon="@drawable/sponsor"
             android:title="Partners" />
