@@ -5,8 +5,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -94,7 +92,6 @@ public class EventList extends AppCompatActivity {
                     eventlistItems.add(new EventlistItem(eventDisplayItems.get(i).getTitle(), eventDisplayItems.get(i).getImageurl(), eventDisplayItems.get(i)));
                 }
                 background.setImageURI(Uri.parse(eventDisplayItems.get(0).getImageurl()));
-                //background.setImageURI(Uri.parse("http://more-sky.com/data/out/6/IMG_85570.png"));
                 adapter.notifyDataSetChanged();
                 progressBar.setVisibility(INVISIBLE);
             }
