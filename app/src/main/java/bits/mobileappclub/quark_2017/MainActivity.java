@@ -129,10 +129,12 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_ex) {
             Intent intent = new Intent(MainActivity.this, Exhibitions.class);
             startActivity(intent);
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_aboutq) {
+            Intent intent = new Intent(MainActivity.this, AboutQuark.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_mac) {
+            Intent intent = new Intent(MainActivity.this, AboutMAC.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

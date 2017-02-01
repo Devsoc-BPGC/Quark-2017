@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_format_about_app_team_card_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:padding="8dp"
+    tools:ignore="HardcodedText"
+    tools:targetApi="lollipop">
+
+    <com.facebook.drawee.view.SimpleDraweeView xmlns:fresco="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/item_format_about_image"
+        android:layout_width="100dip"
+
+        android:layout_height="100dip"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        app:actualImageScaleType="centerCrop"
+        fresco:placeholderImageScaleType="centerCrop"
+        fresco:roundAsCircle="true" />
+
+    <TextView
+        android:id="@+id/item_format_about_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_format_about_image"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="Person Name"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/item_format_about_designation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_format_about_name"
+        android:gravity="center"
+        android:padding="2dp"
+        android:text="Designation"
+        android:textAlignment="center"
+        android:textColor="#eaeaea"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/item_format_about_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_format_about_designation"
+        android:autoLink="phone"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="Mobile Number"
+        android:textAlignment="center"
+        android:textColorLink="@color/app_team_phone_link_color"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/item_format_about_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_format_about_phone"
+        android:layout_marginBottom="8dp"
+        android:autoLink="email"
+        android:gravity="center"
+        android:padding="2dp"
+        android:text="member@bits-waves.org"
+        android:textAlignment="center"
+        android:textColorLink="@color/app_team_email_link_color"
+        android:textSize="12sp" />
+
+</RelativeLayout>
+

@@ -19,4 +19,6 @@
     <string name="title_activity_event_list">EventList</string>
     <string name="title_activity_event_display">EventDisplay</string>
     <string name="title_activity_exhibitions">Exhibitions</string>
+    <string name="title_activity_about_quark">About Quark</string>
+    <string name="title_activity_about_mac">Mobile App Club</string>
 </resources>

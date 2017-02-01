@@ -36,13 +36,14 @@
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/nav_mac"
+                android:icon="@drawable/ic_android_black_24dp"
+                android:title="Mobile App Club" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_aboutq"
+                android:icon="@drawable/ic_error_black_24dp"
+                android:title="About Quark" />
+
         </menu>
     </item>
 

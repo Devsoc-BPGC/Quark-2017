@@ -88,6 +88,14 @@
         <activity
             android:name=".Exhibitions"
             android:label="@string/title_activity_exhibitions"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AboutQuark"
+            android:label="@string/title_activity_about_quark"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AboutMAC"
+            android:label="@string/title_activity_about_mac"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
