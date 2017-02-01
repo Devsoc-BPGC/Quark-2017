@@ -1,5 +1,6 @@
 package bits.mobileappclub.quark_2017;
 
+import android.app.DownloadManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,16 +11,25 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     CardView card, card1, card2, card3;
     SimpleDraweeView main_nights, main_event, main_workshop, main_lecture;
+    DatabaseReference pdfReference = FirebaseDatabase.getInstance().getReference().child("Schedule");
+    String pdfLink = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -135,10 +145,43 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_mac) {
             Intent intent = new Intent(MainActivity.this, AboutMAC.class);
             startActivity(intent);
+        } else if (id == R.id.nav_sch) {
+            DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+            try {
+                downloadManager.enqueue(new DownloadManager.Request(Uri.parse(pdfLink))
+                        .setTitle("Complete schedule")
+                        .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+                        .setDescription("Quark Schedule"));
+
+            } catch (Exception e) {
+                Log.e("TAG", "link wrong");
+                Toast.makeText(this, "Please try again later", Toast.LENGTH_SHORT).show();
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        pdfReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                try {
+                    pdfLink = dataSnapshot.getValue(String.class);
+                    Log.e("TAG", "pdfLink " + pdfLink);
+                } catch (Exception e) {
+                    Log.e("TAG", "pdf rulebook " + dataSnapshot.getValue(String.class));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }
