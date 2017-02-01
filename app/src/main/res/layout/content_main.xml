@@ -14,6 +14,7 @@
         android:id="@+id/card1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         app:cardBackgroundColor="@color/black_overlay">
 
         <com.facebook.drawee.view.SimpleDraweeView
@@ -30,13 +31,13 @@
         android:layout_width="match_parent"
         android:layout_height="220dp"
         android:layout_below="@+id/card1"
-        android:layout_margin="5dp"
+        android:layout_margin="3dp"
         android:background="?attr/selectableItemBackground"
         app:cardCornerRadius="2dp">
 
 
         <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/item_format_categories_background"
+            android:id="@+id/main_event"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
@@ -59,24 +60,124 @@
                 android:background="#2037474F"
                 android:gravity="center"
                 android:padding="8dp"
-                android:text="TITLE"
+                android:text="EVENTS"
                 android:textColor="@color/white"
                 android:textSize="26sp"
                 android:textStyle="bold" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/card2"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card3"
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            app:cardCornerRadius="2dp">
+
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/main_workshop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/empty_event"
+                android:transitionName="@string/app_name" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackground"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/back_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:background="#2037474F"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="WORKSHOPS"
+                    android:textColor="@color/white"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card4"
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            app:cardBackgroundColor="#585550"
+            app:cardCornerRadius="2dp">
+
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/main_lecture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:src="@drawable/empty_event"
+                android:transitionName="@string/app_name"
+                app:viewAspectRatio="3.12" />
+
+
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card5"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_below="@+id/relative"
+        android:layout_margin="3dp"
+        android:background="?attr/selectableItemBackground"
+        app:cardCornerRadius="2dp">
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/main_nights"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:transitionName="@string/app_name" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackground"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/item_format_categories_description"
+                android:id="@+id/item_format_categories"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
-                android:gravity="top|center_horizontal"
-
-                android:text="DESC"
+                android:background="#2037474F"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="AURORA NIGHTS"
                 android:textColor="@color/white"
-                android:textSize="19sp" />
-
+                android:textSize="26sp"
+                android:textStyle="bold" />
         </LinearLayout>
-
-
     </android.support.v7.widget.CardView>
+
 </RelativeLayout>
