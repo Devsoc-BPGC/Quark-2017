@@ -9,9 +9,75 @@
     tools:context="bits.mobileappclub.quark_2017.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/content_main_rv"
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/black_overlay">
 
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/quark_cover"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:transitionName="@string/app_name"
+            app:placeholderImage="@drawable/cover"
+            app:viewAspectRatio="2.12" />
+    </android.support.v7.widget.CardView>
+    <?xml version="1.0" encoding="utf-8"?>
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card2"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_below="@+id/card1"
+        android:layout_margin="5dp"
+        android:background="?attr/selectableItemBackground"
+        app:cardCornerRadius="2dp">
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/item_format_categories_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/empty_event"
+            android:transitionName="@string/app_name" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackground"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/item_format_categories_title"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:background="#2037474F"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="TITLE"
+                android:textColor="@color/white"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/item_format_categories_description"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="top|center_horizontal"
+
+                android:text="DESC"
+                android:textColor="@color/white"
+                android:textSize="19sp" />
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
 </RelativeLayout>
