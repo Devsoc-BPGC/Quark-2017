@@ -1,10 +1,13 @@
 package bits.mobileappclub.quark_2017;
 
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutCompat;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -12,6 +15,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +34,7 @@ public class EventList extends AppCompatActivity {
     private RecyclerView recyclerView;
     private Vector<EventDisplayItem> eventDisplayItems = new Vector<>();
     private ProgressBar progressBar;
+    private SimpleDraweeView background;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,7 @@ public class EventList extends AppCompatActivity {
         setContentView(R.layout.activity_event_list);
         recyclerView = (RecyclerView) findViewById(R.id.content_event_list_rv);
         progressBar = (ProgressBar) findViewById(R.id.content_event_list_progress);
+        background = (SimpleDraweeView) findViewById(R.id.content_event_list_background);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -65,7 +71,7 @@ public class EventList extends AppCompatActivity {
             databaseReference = FirebaseDatabase.getInstance().getReference().child("Events").child(category);
         }
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new EventlistRVAdapter(this, eventlistItems);
         recyclerView.setAdapter(adapter);
         databaseReference.keepSynced(true);
@@ -87,6 +93,8 @@ public class EventList extends AppCompatActivity {
                 for (int i = 0; i < eventDisplayItems.size(); i++) {
                     eventlistItems.add(new EventlistItem(eventDisplayItems.get(i).getTitle(), eventDisplayItems.get(i).getImageurl(), eventDisplayItems.get(i)));
                 }
+                background.setImageURI(Uri.parse(eventDisplayItems.get(0).getImageurl()));
+                //background.setImageURI(Uri.parse("http://more-sky.com/data/out/6/IMG_85570.png"));
                 adapter.notifyDataSetChanged();
                 progressBar.setVisibility(INVISIBLE);
             }

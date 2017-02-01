@@ -1,31 +1,17 @@
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="1dp"
-    app:cardBackgroundColor="@color/black">
+    android:layout_marginBottom="1dp"
+    android:background="#70000000">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/event_list_item_format_text"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="32dp"
+        android:text="Event title"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/event_list_item_format_image"
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            app:actualImageScaleType="fitCenter" />
-
-        <TextView
-            android:id="@+id/event_list_item_format_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="4dp"
-            android:text="Event title"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-
-
-    </LinearLayout>
-</android.support.v7.widget.CardView>
+</LinearLayout>

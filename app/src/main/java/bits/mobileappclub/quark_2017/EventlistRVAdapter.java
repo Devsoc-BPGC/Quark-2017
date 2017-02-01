@@ -19,11 +19,11 @@ import java.util.Vector;
 
 public class EventlistRVAdapter extends RecyclerView.Adapter<EventlistRVAdapter.ViewHolder> {
     Context context;
-    Vector<EventlistItem> eventlistItems;
+    private Vector<EventlistItem> eventlistItems;
 
     //Constructor
 
-    public EventlistRVAdapter(Context context, Vector<EventlistItem> eventlistItems) {
+    EventlistRVAdapter(Context context, Vector<EventlistItem> eventlistItems) {
         this.context = context;
         this.eventlistItems = eventlistItems;
     }
@@ -42,7 +42,6 @@ public class EventlistRVAdapter extends RecyclerView.Adapter<EventlistRVAdapter.
     @Override
     public void onBindViewHolder(EventlistRVAdapter.ViewHolder holder, int position) {
         holder.eventtitle.setText(eventlistItems.get(position).getTitle());
-        holder.eventimage.setImageURI(Uri.parse(eventlistItems.get(position).getImageurl()));
     }
 
     @Override
@@ -50,13 +49,11 @@ public class EventlistRVAdapter extends RecyclerView.Adapter<EventlistRVAdapter.
         return eventlistItems.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         TextView eventtitle;
-        SimpleDraweeView eventimage;
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
             eventtitle = (TextView) itemView.findViewById(R.id.event_list_item_format_text);
-            eventimage = (SimpleDraweeView) itemView.findViewById(R.id.event_list_item_format_image);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
